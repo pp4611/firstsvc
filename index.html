@@ -74,12 +74,18 @@
         <div class="result__row">
           <dt class="result__key">구글 계정(ID)</dt>
           <dd class="result__value">
-            <span id="resultEmail">-</span>
-            <!-- 다음 단계에서 복사 버튼 기능(JS) 연결 예정 -->
-            <button id="copyEmailBtn" class="btn btn--small" type="button" disabled>
-              복사
-            </button>
-          </dd>
+  <span id="resultEmail">-</span>
+
+  <div class="result__buttons">
+    <button id="copyEmailBtn" class="btn btn--small" type="button" disabled>
+      복사
+    </button>
+
+    <button id="resetPwRequestBtn" class="btn btn--primary btn--small" type="button" disabled>
+      비밀번호 초기화 요청
+    </button>
+  </div>
+</dd>
         </div>
 
         <div class="result__row">
