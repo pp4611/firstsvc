@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>우리학교 구글 계정 조회</title>
+  <meta name="description" content="학번과 이름으로 학교 Google 계정(ID)을 조회합니다." />
+  <!-- 다음 단계에서 style.css 연결 예정 -->
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <main class="app" id="app">
+    <header class="app__header">
+      <h1 class="app__title">우리학교 구글 계정 조회</h1>
+      <p class="app__subtitle">학번과 이름을 입력하면 해당 계정(ID)을 확인할 수 있습니다.</p>
+    </header>
+
+    <!-- 검색 폼: 엔터(Submit) 또는 버튼 클릭으로 동작 -->
+    <section class="card" aria-label="검색 영역">
+      <form id="searchForm" class="form" autocomplete="off">
+        <div class="form__row">
+          <label class="form__label" for="studentNo">학번</label>
+          <input
+            id="studentNo"
+            name="studentNo"
+            class="form__input"
+            type="text"
+            inputmode="numeric"
+            placeholder="예) 20123"
+            maxlength="10"
+            required
+          />
+        </div>
+
+        <div class="form__row">
+          <label class="form__label" for="studentName">이름</label>
+          <input
+            id="studentName"
+            name="studentName"
+            class="form__input"
+            type="text"
+            placeholder="예) 홍길동"
+            maxlength="20"
+            required
+          />
+        </div>
+
+        <div class="form__actions">
+          <button id="searchBtn" class="btn btn--primary" type="submit">
+            검색
+          </button>
+          <button id="resetBtn" class="btn" type="reset">
+            지우기
+          </button>
+        </div>
+
+        <p class="form__hint" id="formHint">
+          Enter 키로도 검색할 수 있어요.
+        </p>
+      </form>
+    </section>
+
+    <!-- 메시지/오류 출력 영역 -->
+    <section class="notice" aria-live="polite" aria-atomic="true">
+      <p id="message" class="notice__text"></p>
+    </section>
+
+    <!-- 결과 출력 영역 -->
+    <section id="resultCard" class="card" aria-label="검색 결과" hidden>
+      <h2 class="card__title">검색 결과</h2>
+
+      <dl class="result">
+        <div class="result__row">
+          <dt class="result__key">구글 계정(ID)</dt>
+          <dd class="result__value">
+            <span id="resultEmail">-</span>
+            <!-- 다음 단계에서 복사 버튼 기능(JS) 연결 예정 -->
+            <button id="copyEmailBtn" class="btn btn--small" type="button" disabled>
+              복사
+            </button>
+          </dd>
+        </div>
+
+        <div class="result__row">
+          <dt class="result__key">비밀번호</dt>
+          <dd class="result__value">
+            <span class="muted">보안상 비밀번호는 제공하지 않습니다.</span>
+          </dd>
+        </div>
+      </dl>
+
+      <div class="help">
+        <p class="help__text">
+          비밀번호를 잊었나요? 아래 안내에 따라 재설정(초기화)하세요.
+        </p>
+        <!-- 실제 학교 정책에 맞게 링크/문구는 다음 단계에서 조정 -->
+        <ul class="help__list">
+          <li>학교 계정이라면: 담임/정보부서/관리자에게 초기화 요청</li>
+          <li>Google Workspace 사용 시: 관리자 재설정 절차 안내 제공</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="app__footer">
+      <small class="muted">
+        ※ 이 페이지는 계정(ID) 확인 목적이며, 비밀번호는 안전을 위해 표시하지 않습니다.
+      </small>
+    </footer>
+  </main>
+
+  <!-- 다음 단계에서 app.js 연결 예정 -->
+  <script src="./app.js"></script>
+</body>
+</html>
